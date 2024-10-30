@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="fe437c10-dea7-4003-8bb9-1b2c58e12528" activeEnvironment="Default" name="REST Project 1" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="e84d0ae5-54d5-4fde-a0ac-b5debd77593c" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8181" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:8181</con:endpoint></con:endpoints><con:resource name="Cep" path="" id="ac324f3b-31bd-48cd-97cd-b5a49cecdfe6"><con:settings/><con:parameters><con:parameter><con:name>zipcode</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/></con:parameter></con:parameters><con:method name="Cep 1" id="183ac6c0-8f41-4517-b8dc-d76709da1544" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="8a7fd57d-a9fa-428a-9cd2-3d88cf0f4eaf" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8181</con:endpoint><con:request/><con:originalUri>http://localhost/consulta/cep/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="zipcode" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>zipcode</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:restMockService id="329448eb-988b-4a98-a1e1-7b522d053c26" port="8181" path="/consulta/cep/{zipcode}" host="POSEIDON" name="REST MockService" docroot=""><con:settings/><con:properties/><con:restMockAction name="consultaCep" method="GET" resourcePath="/consulta/cep/{zipcode}" id="eb7dabca-eabe-4869-a40a-de3e1cb5ca9e"><con:settings/><con:defaultResponse>Response 404</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>if (mockRequest != null) {
+    def zipcode = mockRequest.request.getPath().tokenize('/').last()
+
+    if (zipcode == "60130240") {
+        return "Success 200"
+    } else {
+        return "Not Found 404"
+    }
+} else {
+    log.error("mockRequest is null")
+    return "Not Found 404"
+}</con:dispatchPath><con:response name="Response 200" id="9e7545d4-15b9-46a2-ae3c-3f1291b4937a" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{
+    "cep": "60130240",
+    "tipoCep": "logradouro",
+    "subTipoCep": "S",
+    "uf": "CE",
+    "cidade": "Fortaleza",
+    "bairro": "Sao Joao do Tauape",
+    "endereco": "Avenida Pontes Vieira",
+    "complemento": "De 2 Ate 1550 Lado Par",
+    "codigoIBGE": ""
+}</con:responseContent></con:response><con:response name="Response 404" id="7107fe99-1d9b-44e5-b429-9a69834d0ae9" httpResponseStatus="404" mediaType="application/json"><con:settings/><con:responseContent>{
+    "error": "Cep não encontrado."
+}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

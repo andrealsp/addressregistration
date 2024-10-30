@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: "${APPLICATION_NAME:address-registration}"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+server:
+  servlet:
+    context-path: "/${APPLICATION_PREFIX:addressRegistration/v1}"
+  error.include-stacktrace: never
+
+webservice:
+  rest:
+    searchzipcode:
+      uri: "http://localhost:8181/consulta"
+
+log:
+  file:
+    path: "${LOG_PATH:/tmp/logs}"
+
+management:
+  endpoints:
+    web:
+      base-path: "/"
+      path-mapping:
+        health: "healthcheck"
+
+logging:
+  level:
+    feign.client: DEBUG
