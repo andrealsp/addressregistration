@@ -17,7 +17,8 @@ Obs.: In case of conflicts, found the proper solution for your case.
 
 ## How-To-Use
 
-1) After execute the [pre-requirements](#Pre-requirements) execute the application
+1) The Solution Design [src/main/resources/SolutionDesign.jpg](src/main/resources/SolutionDesign.jpg)
+2) After execute the [pre-requirements](#Pre-requirements) execute the application
 2) On postman, execute the curl imported.
 
 ## Author
